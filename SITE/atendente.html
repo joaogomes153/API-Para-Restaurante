@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Cliente - Sistema de Reservas</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(to bottom, #ffc746 80%, #000000 50%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            background-color: #000000;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #ffc746;
+        }
+
+        main {
+            padding: 20px 0;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #000000;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ffc746;
+            color: #000000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+
+        .table-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th,
+        table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        table tr:hover {
+            background-color: #ffc746;
+        }
+
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .close-btn {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: black;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            .form-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Sistema de Reservas - Restaurante</h1>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="atendente.html">Área do Atendente</a></li>
+                <li><a href="garcom.html">Área do Garçom</a></li>
+                <li><a href="gerente.html">Área do Gerente</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <h2 class="page-title">Fazer Reserva</h2>
+            <div id="message-container"></div>
+            <div class="form-container">
+                <form id="reserva-form">
+                    <div class="form-group">
+                        <label for="nome_responsavel">Nome do Responsável:</label>
+                        <input type="text" id="nome_responsavel" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="data">Data da Reserva:</label>
+                        <input type="date" id="data" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hora">Hora da Reserva:</label>
+                        <input type="time" id="hora" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="qtde_pessoas">Quantidade de Pessoas:</label>
+                        <input type="number" id="qtde_pessoas" class="form-control" min="1" required>
+                    </div>
+                    <div class="form-group">
+    <label for="numero_mesa">Mesa:</label>
+    <select id="numero_mesa" class="form-control" required>
+        <option value="">Selecione uma mesa</option>
+        <option value="1">Mesa 1</option>
+        <option value="2">Mesa 2</option>
+        <option value="3">Mesa 3</option>
+        <!-- Adicione mais opções conforme necessário -->
+    </select>
+</div>
+                    <button type="submit" class="btn btn-block">Fazer Reserva</button>
+                </form>
+            </div>
+            <div class="form-container" style="margin-top: 30px;">
+                <h3>Consultar/Editar Reserva</h3>
+                <form id="consulta-form">
+                    <div class="form-group">
+                        <label for="reserva_id">Número da Reserva:</label>
+                        <input type="number" id="reserva_id" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-block">Consultar</button>
+                </form>
+
+                <div id="reserva-detalhes" style="margin-top: 20px; display: none;">
+                    <h4>Detalhes da Reserva</h4>
+                    <div id="reserva-info"></div>
+                    <button id="btn-editar-reserva" class="btn" style="margin-top: 15px; display: none;"
+                        onclick="abrirModalEdicaoCliente()">Editar Reserva</button>
+                    <button id="btn-excluir-reserva" class="btn btn-danger" style="margin-top: 15px; display: none;"
+                        onclick="excluirReservaCliente()">Excluir Reserva</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="editReservaModalCliente" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="fecharModalEdicaoCliente()">&times;</span>
+            <h2>Editar Reserva</h2>
+            <form id="edit-reserva-form-cliente">
+                <input type="hidden" id="edit_reserva_id_cliente">
+                <div class="form-group">
+                    <label for="edit_nome_responsavel_cliente">Nome do Responsável:</label>
+                    <input type="text" id="edit_nome_responsavel_cliente" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit_data_cliente">Data da Reserva:</label>
+                    <input type="date" id="edit_data_cliente" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit_hora_cliente">Hora da Reserva:</label>
+                    <input type="time" id="edit_hora_cliente" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit_qtde_pessoas_cliente">Quantidade de Pessoas:</label>
+                    <input type="number" id="edit_qtde_pessoas_cliente" class="form-control" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit_numero_mesa_cliente">Mesa:</label>
+                    <select id="edit_numero_mesa_cliente" class="form-control" required>
+                        <option value="">Selecione uma mesa</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Salvar Alterações</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="atendente.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Garçom - Sistema de Reservas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="montserrat">Sistema de Reservas - Restaurante</h1>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="atendente.html">Área do Atendente</a></li>
+                <li><a href="garcom.html">Área do Garçom</a></li>
+                <li><a href="gerente.html">Área do Gerente</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <div class="container">
+            <h2 class="page-title montserrat">Atendimento de Reservas</h2>
+            
+            <div id="message-container"></div>
+            
+            <div class="form-container">
+                <form id="busca-reserva-form">
+                    <div class="form-group">
+                        <label for="reserva_id">Número da Reserva:</label>
+                        <input type="number" id="reserva_id" class="form-control" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-block">Buscar Reserva</button>
+                </form>
+                
+                <div id="reserva-detalhes" style="margin-top: 20px; display: none;">
+                    <h3 class="montserrat">Detalhes da Reserva</h3>
+                    <div id="reserva-info"></div>
+                    
+                    <div id="atendimento-form" style="margin-top: 20px; display: none;">
+                        <h3 class="montserrat">Registrar Atendimento</h3>
+                        <form id="form-atender">
+                            <div class="form-group">
+                                <label for="garcom_nome">Selecione seu nome:</label>
+                                <select id="garcom_nome" class="form-control" required>
+                                    <option value="">Selecione...</option>
+                                </select>
+                            </div>
+                            <input type="hidden" id="reserva_id_atender">
+                            <button type="submit" class="btn btn-block">Confirmar Atendimento</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="form-container" style="margin-top: 30px;">
+                <h3 class="montserrat">Buscar por Mesa</h3>
+                <form id="busca-mesa-form">
+                    <div class="form-group">
+                        <label for="numero_mesa">Número da Mesa:</label>
+                        <select id="numero_mesa" class="form-control" required>
+                            <option value="">Selecione uma mesa</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-block">Buscar Reservas da Mesa</button>
+                </form>
+                <div id="reservas-mesa" style="margin-top: 20px; display: none;">
+                    <h4>Reservas para esta Mesa</h4>
+                    <div id="lista-reservas-mesa"></div>
+                </div>
+            </div>
+            <div class="form-container" style="margin-top: 30px;">
+                <h3 class="montserrat">Liberar Mesa</h3>
+                <form id="liberar-mesa-form">
+                    <div class="form-group">
+                        <label for="mesa_liberar">Número da Mesa:</label>
+                        <select id="mesa_liberar" class="form-control" required>
+                            <option value="">Selecione uma mesa</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-block">Liberar Mesa</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <script src="main.js"></script>
+    <script src="garcom.js"></script>
+</body>
+</html>

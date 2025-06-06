@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Reservas - Restaurante</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="montserrat">Sistema de Reservas - Restaurante</h1>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="atendente.html">Área do Atendente</a></li>
+                <li><a href="garcom.html">Área do Garçom</a></li>
+                <li><a href="gerente.html">Área do Gerente</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <div class="container">
+            <h2 class="page-title montserrat">Bem-vindo ao Sistema de Reservas</h2>
+            
+            <div class="form-container">
+                <p>Selecione uma das opções abaixo para acessar as funcionalidades do sistema:</p>
+                
+                <div style="margin-top: 30px; display: flex; flex-direction: column; gap: 15px;">
+                    <a href="atendente.html" class="btn btn-block">Área do Cliente</a>
+                    <p>Faça sua reserva de mesa no restaurante.</p>
+                    
+                    <a href="garcom.html" class="btn btn-block">Área do Garçom</a>
+                    <p>Registre o atendimento de reservas.</p>
+                    
+                    <a href="gerente.html" class="btn btn-block">Área do Gerente</a>
+                    <p>Monitore reservas, garçons e emita relatórios.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <div id="message-container" style="position: fixed; bottom: 20px; right: 20px; max-width: 300px;"></div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

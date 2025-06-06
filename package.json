@@ -1,0 +1,14 @@
+{
+  "name": "restaurant-api",
+  "version": "1.0.0",
+  "description": "API for restaurant table reservations",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "setup-db": "node database_setup.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "sqlite3": "^5.1.7"
+  }
+}
